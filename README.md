@@ -5,7 +5,7 @@
 
 **1. Setup**
 
-```sh
+```
 $ git clone https://github.com/htanjo/screenshots.git
 $ cd screenshots
 $ npm install
@@ -15,7 +15,7 @@ $ npm install
 
 **3. Run application**
 
-```sh
+```
 $ npm start
 ```
 
