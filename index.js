@@ -10,6 +10,7 @@ function start() {
     })
     .catch(function (err) {
       console.error('Error!');
+      console.error(err.toString());
     });
 }
 
