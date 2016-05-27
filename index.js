@@ -1,12 +1,14 @@
 var Pageres = require('pageres');
 var Promise = require('bluebird');
+var chalk = require('chalk');
+var figures = require('figures');
 var urls = require('./urls.json');
 
 function start() {
-  console.log('Starting...');
+  console.log('Starting...\n');
   Promise.map(urls, capture, {concurrency: 5})
     .then(function () {
-      console.log('Done!');
+      console.log('\nDone!');
     });
 }
 
@@ -16,11 +18,11 @@ function capture(url) {
     .dest('screenshots')
     .run()
     .then(function () {
-      console.log('  captured: ' + url);
+      console.log(chalk.green(figures.tick + ' ' + url));
     })
     .catch(function (err) {
-      console.error('  error: ' + url);
-      console.error(err.toString());
+      console.error(chalk.red(figures.cross + ' ' + url));
+      console.error(chalk.gray('  ' + err.toString()));
     });
 }
 
