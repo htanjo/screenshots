@@ -6,11 +6,7 @@ function start() {
   console.log('Starting...');
   Promise.map(urls, capture, {concurrency: 5})
     .then(function () {
-      console.log('Complete!');
-    })
-    .catch(function (err) {
-      console.error('Error!');
-      console.error(err.toString());
+      console.log('Done!');
     });
 }
 
@@ -21,6 +17,10 @@ function capture(url) {
     .run()
     .then(function () {
       console.log('  captured: ' + url);
+    })
+    .catch(function (err) {
+      console.error('  error: ' + url);
+      console.error(err.toString());
     });
 }
 
